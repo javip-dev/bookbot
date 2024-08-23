@@ -21,14 +21,10 @@ def get_chars_dic(text: str):
 def print_report(path , num_words, chars_dic: dict):
     print(f"-- Begin report of {path}")
     print(f"{num_words} found in the document")
-    print("\n")
-    list_from_dict = list(chars_dic.items())
+    print()
     list_chars_dic = []
-    for tuple in list_from_dict:
-        dic_temp = {}
-        dic_temp["letter"] = tuple[0]
-        dic_temp["num"] = tuple[1]
-        list_chars_dic.append(dic_temp)
+    for let in chars_dic:
+        list_chars_dic.append({"letter": let, "num": chars_dic[let]  })
     list_chars_dic.sort(reverse=True, key=sort_on)
     for l in list_chars_dic:
         print(f"The '{l['letter']}' character was found {l['num']} times")
